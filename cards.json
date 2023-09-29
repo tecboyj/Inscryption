@@ -1,0 +1,66 @@
+{
+    "squirl": {
+        "squirl": {
+            "name": "Squirl",
+            "cost": 0,
+            "hearts": 1,
+            "attack": 0,
+            "sigil": null
+        }
+    },
+    "stoat": {
+        "stoat": {
+            "name": "Stoat",
+            "cost": 1,
+            "hearts": 3,
+            "attack": 1,
+            "sigil": null
+        }
+    },
+    "rare": [
+        {"geck": {
+            "name": "Geck",
+            "cost": 0,
+            "hearts": 1,
+            "attack": 1,
+            "sigil": "unkillable"
+        }},
+        {"mantis_god": {
+            "name": "Mantis God",
+            "cost": 1,
+            "hearts": 1,
+            "attack": 1,
+            "sigil": "trippleAttack"
+        }}
+    ],
+    "common": [
+        {"wolf": {
+            "name": "Wolf",
+            "cost": 2,
+            "hearts": 2,
+            "attack": 3,
+            "sigil": null
+        }},
+        {"bullfrog": {
+            "name": "Bullfrog",
+            "cost": 1,
+            "hearts": 2,
+            "attack": 1,
+            "sigil": "flyingDefence"
+        }},
+        {"sparrow": {
+            "name": "Sparrow",
+            "cost": 1,
+            "hearts": 2,
+            "attack": 1,
+            "sigil": "flying"
+        }},
+        {"cat": {
+            "name": "Cat",
+            "cost": 1,
+            "hearts": 1,
+            "attack": 0,
+            "sigil": "infiniteBlood"
+        }}
+    ]
+}
