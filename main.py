@@ -43,7 +43,7 @@ if __name__ == "__main__":
             if (play == "1"):
                 card = input("Which card do you want to play? ")
                 if (card == "1" or card == "2" or card == "3" or card == "4"):
-                    if (playerdata["board"][card] == None):
+                    if (playerdata["hand"][card - 1] != None):
                         card = playerdata["hand"].pop(int(card)-1)
                         playerdata["board"][card["position"]] = card
                     else:
@@ -56,5 +56,6 @@ if __name__ == "__main__":
 
 
 
-
+        score()
         save_gamestate()
+    reset()

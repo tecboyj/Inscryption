@@ -37,7 +37,6 @@ def save_gamestate():
     global gamedata
 
     gamedata["turn"] = 2 if player == "1" else 1
-    gamedata[players[player]] = playerdata
     with open("game.json", 'w') as file:
         json.dump(gamedata, file)
 
@@ -76,8 +75,11 @@ def attack():
 
 def score():
     global gamedata
+    global gameover
 
     if (gamedata["score"] > 4):
         print("Player 1 wins!")
+        gameover = True
     elif (gamedata["score"] < -4):
         print("Player 2 wins!")
+        gameover = True
