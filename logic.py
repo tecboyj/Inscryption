@@ -6,6 +6,7 @@ player = None
 players = {"1": "player1", "2": "player2"}
 gamedata = None
 playerdata = None
+opponentBoard = None
 gameover = False
 
 cards= None
@@ -13,6 +14,7 @@ cards= None
 def load_gamestate(x):
     global player
     global gamedata
+    global opponentBoard
     global playerdata
 
     with open("game.json", 'r') as file:
@@ -20,6 +22,7 @@ def load_gamestate(x):
         player = str(data["turn"])
         gamedata = data
         playerdata = data[players[player]]
+        opponentBoard = data[players[str(2 if player == "1" else 1)]]["board"]
 
     global cards
     with open("cards.json", 'r') as file:
@@ -40,7 +43,7 @@ def save_gamestate():
     with open("game.json", 'w') as file:
         json.dump(gamedata, file)
 
-def draw():
+def draw(x):
     global playerdata
     global cards
 
@@ -58,7 +61,6 @@ def draw():
         elif (playerdata["squirls"] == 0):
             draw_deck()
         else:
-            x = input("1) Squirl\n2) Draw\n")
             if (x == "1"):
                 draw_squirl()
             else:
@@ -70,7 +72,22 @@ def draw_deck():
     playerdata["hand"].append(playerdata["deck"].pop(randint(0, len(playerdata["deck"])-1)))
 
 def attack():
-    print("attack")
+    for i in range(4):
+        attack_loop(str(i + 1))
+    
+
+def attack_loop(place):
+    global playerdata
+    global opponentBoard
+    global gamedata
+    global player
+
+    if ((opponentBoard[place] != None) and (playerdata["board"][place] != None)):
+        print("1) " + opponentBoard["1"]["name"])
+    elif ((opponentBoard[place] == None) and (playerdata["board"][place] != None)):
+        match player:
+            case 1: gamedata["score"] += playerdata["board"][place]["attack"]
+            case 2: gamedata["score"] -= playerdata["board"][place]["attack"]
 
 
 def score():
