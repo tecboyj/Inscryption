@@ -74,7 +74,7 @@ def draw_deck():
 def attack():
     for i in range(4):
         attack_loop(str(i + 1))
-    
+
 
 def attack_loop(place):
     global playerdata

@@ -7,7 +7,7 @@ player2deck = {"deck": []}
 def random_deck():
     with open("cards.json", "r") as file:
         cards = json.load(file)
-    
+
     global player1deck
     global player2deck
 
@@ -22,7 +22,7 @@ def random_deck():
     player2deck["deck"].append(cards["rare"][randint(0, 1)])
 
 def reset():
-    game = {"turn": 1, "player1": {"board": {"1": None, "2": None, "3": None, "4": None}, "hand": [], "deck": [], "squirls": 6}, 
+    game = {"turn": 1, "player1": {"board": {"1": None, "2": None, "3": None, "4": None}, "hand": [], "deck": [], "squirls": 6},
             "player2": {"board": {"1": None, "2": None, "3": None, "4": None}, "hand": [], "deck": [], "squirls": 6}}
     with open("game.json", 'w') as file:
         json.dump(game, file)
@@ -43,7 +43,7 @@ def print_board():
             player.append(playerdata["board"][str(i + 1)])
         else:
             player.append("")
-        
+
         if (len(player[i]) > len(opponent[i])):
             x = len(player[i]) - len(opponent[i])
             for j in range(x):
